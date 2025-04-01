@@ -1,0 +1,52 @@
+/* Reset e estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Tema claro */
+  --fundo-claro: #ffffff;
+  --texto-claro: #333333;
+  --primaria-claro: #007bff;
+  --secundaria-claro: #e9ecef;
+  --cartao-claro: #ffffff;
+  --borda-claro: #dee2e6;
+  --sombra-claro: rgba(0, 0, 0, 0.1);
+
+  /* Tema escuro */
+  --fundo-escuro: #333333;
+  --texto-escuro: #ffffff;
+  --primaria-escuro: #4da6ff;
+  --secundaria-escuro: #444444;
+  --cartao-escuro: #444444;
+  --borda-escuro: #555555;
+  --sombra-escuro: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+body.tema-claro {
+  background-color: var(--fundo-claro);
+  color: var(--texto-claro);
+}
+
+body.tema-escuro {
+  background-color: var(--fundo-escuro);
+  color: var(--texto-escuro);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
