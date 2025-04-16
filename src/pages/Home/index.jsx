@@ -262,20 +262,6 @@ export const items = [
     categoria: 'Ação',
     comentarios: [],
     totalAvaliacoes:150
-  },
-  {
-    id: 10,
-    titulo: 'Galactic Wars',
-    imagem: 'https://images.unsplash.com/photo-1677519007448-802732cff122?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
-    ],
-    descricao: 'Participe da guerra intergaláctica definitiva. Comande naves, lidere exércitos e mude o rumo da galáxia.',
-    categoria: 'Ficção Científica',
-    comentarios: [],
-    totalAvaliacoes: 220
   }
 ];
 
