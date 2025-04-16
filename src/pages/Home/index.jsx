@@ -5,84 +5,136 @@ import { GameDetails } from '../../components/GameDetails';
 import { useFavoritos } from '../../context/FavoritesContext';
 
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
-`;
-
 const DestaqueBanner = styled.div`
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  padding: 40px 20px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease-in-out;
+  background: linear-gradient(135deg, #001f3f, #003f7f, #0059b3);
+  padding: 60px 30px;
+  border-radius: 30px;
+  margin: 40px 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 123, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 123, 255, 0.4);
   }
 
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  .conteudo-destaque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
-  .star-icon {
-    font-size: 3rem;
-    color: #ffcc00;
-    margin-left: 15px;
+  .texto-destaque {
+    text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+      max-width: 50%;
+    }
+
+    h2 {
+      color: #ffffff;
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    span {
+      display: inline-block;
+      color: #cce6ff;
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .card-destaque {
+    flex-shrink: 0;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.08);
+    }
   }
 `;
 
+
+
+// Campo de busca com estilo moderno e destaque em azul
+const CampoBusca = styled.input`
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 30px;
+  border: 1px solid #007BFF;
+  background: #121212;
+  color: #fff;
+  font-size: 1rem;
+  margin: 24px auto;
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #66b2ff;
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+  }
+`;
+
+// Container dos botões de categoria
 const FiltroContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 32px;
 `;
 
+// Botão de filtro com azul no hover e como ativo
 const CategoriaButton = styled.button`
-  padding: 10px 15px;
-  background: ${({ ativo }) => (ativo ? 'linear-gradient(135deg, #2575fc, #6a11cb)' : '#222')};
-  color: white;
-  border: none;
-  border-radius: 20px;
+  padding: 10px 20px;
+  background: ${({ ativo }) => ativo
+    ? 'linear-gradient(135deg, #007BFF, #0056b3)'
+    : '#222'};
+  color: #fff;
+  border: 2px solid ${({ ativo }) => ativo ? '#007BFF' : '#333'};
+  border-radius: 25px;
   cursor: pointer;
-  font-weight: 500;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: ${({ ativo }) => ativo ? '0 4px 12px rgba(0, 123, 255, 0.4)' : '0 2px 6px rgba(0,0,0,0.2)'};
 
   &:hover {
-    background: ${({ ativo }) => (ativo ? 'linear-gradient(135deg, #2575fc, #6a11cb)' : '#333')};
+    background: ${({ ativo }) => ativo
+    ? 'linear-gradient(135deg, #007BFF, #0056b3)'
+    : '#2a2a2a'};
+    border-color: #007BFF;
   }
 `;
 
-const CampoBusca = styled.input`
-  padding: 12px 20px;
-  border-radius: 20px;
-  border: 1px solid #444;
-  background-color: #111;
-  color: white;
-  font-size: 1rem;
-  outline: none;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  margin-bottom: 20px;
 
-  &::placeholder {
-    color: #888;
-  }
+// Grid responsivo para os cards
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
 `;
-
 
 export const items = [
   {
@@ -299,20 +351,27 @@ export const Home = () => {
   return (
     <>
       <DestaqueBanner>
-        <div>
-          <h2>Jogo Mais Bem Avaliado</h2>
-          <Card
-            {...jogoMaisBemAvaliado}
-            avaliacao={avaliacoes[jogoMaisBemAvaliado.id] || 0}
-            onAvaliar={handleAvaliar}
-            onClick={() => handleClickJogo(jogoMaisBemAvaliado.id)}
-          />
+        <div className="conteudo-destaque">
+          <div className="texto-destaque">
+            <h2>🎮 Jogo Mais Bem Avaliado</h2>
+            <span>Explore o jogo mais amado pela comunidade!</span>
+          </div>
+
+          <div className="card-destaque">
+            <Card
+              {...jogoMaisBemAvaliado}
+              avaliacao={avaliacoes[jogoMaisBemAvaliado.id] || 0}
+              onAvaliar={handleAvaliar}
+              onClick={() => handleClickJogo(jogoMaisBemAvaliado.id)}
+            />
+          </div>
         </div>
       </DestaqueBanner>
 
+
       <CampoBusca
         type="text"
-        placeholder="Buscar por título..."
+        placeholder="Buscar por título do jogo..."
         value={busca}
         onChange={(e) => setBusca(e.target.value)}
       />

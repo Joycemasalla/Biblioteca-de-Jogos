@@ -2,25 +2,43 @@ import React from 'react';
 import styled from 'styled-components';
 import { Heart, Star } from 'lucide-react';
 import { useFavoritos } from '../../context/FavoritesContext.jsx';
-import { useRating } from '../../context/RatingContext.jsx'; // <-- importando o contexto de avaliação
+import { useRating } from '../../context/RatingContext.jsx';
 
-// Estilos mantidos conforme seu original
+// Estilos aprimorados
 const CardContainer = styled.div`
   background: ${({ theme }) => theme.cardBackground};
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadow};
-  transition: transform 0.2s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   cursor: pointer;
-
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px;
+  
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.05);
   }
 `;
 
 const ImageContainer = styled.div`
   position: relative;
-  padding-top: 56.25%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const Image = styled.img`
@@ -30,71 +48,90 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 12px;
+  filter: brightness(0.7);
+  transition: filter 0.3s ease;
+  
+  ${ImageContainer}:hover & {
+    filter: brightness(1);
+  }
 `;
 
 const Content = styled.div`
   padding: 16px;
+  width: 100%;
 `;
 
 const Title = styled.h3`
-  margin-bottom: 8px;
-  color: ${({ theme }) => theme.text};
+  font-size: 1.25rem;
+  color: ${({ theme }) => theme.primaryText};
+  font-weight: 600;
+  margin: 12px 0;
+  transition: color 0.3s ease;
+
+  ${CardContainer}:hover & {
+    color: #007BFF;
+  }
 `;
 
 const Description = styled.p`
   color: ${({ theme }) => theme.text};
   opacity: 0.8;
-  font-size: 0.9rem;
-  margin-bottom: 12px;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
 `;
 
 const Actions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 `;
 
 const FavoriteButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  color: ${({ isFavorito }) => (isFavorito ? '#ff4757' : 'inherit')};
-  transition: all 0.2s ease;
+  color: ${({ isFavorito }) => (isFavorito ? '#ff4757' : '#999')};
+  transition: transform 0.3s ease, color 0.3s ease;
 
   svg {
     fill: ${({ isFavorito }) => (isFavorito ? '#ff4757' : 'none')};
-    stroke: ${({ isFavorito }) => (isFavorito ? '#ff4757' : 'currentColor')};
+    stroke: ${({ isFavorito }) => (isFavorito ? '#ff4757' : '#999')};
+    transition: fill 0.3s ease, stroke 0.3s ease;
   }
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
+    color: #ff4757;
   }
 `;
 
 const Rating = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
 `;
 
 const StarButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.3s ease;
 
   svg {
-    fill: ${({ $active }) => ($active ? '#ffd700' : 'none')};
+    fill: ${({ $active }) => ($active ? '#ffd700' : '#ccc')};
     stroke: ${({ $active }) => ($active ? '#ffd700' : '#ccc')};
+    transition: fill 0.3s ease, stroke 0.3s ease;
   }
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 `;
 
 const TotalAvaliacoes = styled.span`
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: ${({ theme }) => theme.text};
   opacity: 0.7;
   margin-left: 8px;
@@ -109,7 +146,7 @@ export const Card = ({
   onClick
 }) => {
   const { favoritos, adicionarFavorito, removerFavorito } = useFavoritos();
-  const { ratings, rateGame } = useRating(); // <-- usando o contexto global
+  const { ratings, rateGame } = useRating();
   const isFavorito = favoritos.some(f => f.id === id);
 
   const toggleFavorito = (e) => {
@@ -131,7 +168,7 @@ export const Card = ({
 
   const handleAvaliacao = (e, valor) => {
     e.stopPropagation();
-    rateGame(id, valor); // <-- salva a avaliação globalmente
+    rateGame(id, valor);
   };
 
   return (
