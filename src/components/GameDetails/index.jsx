@@ -211,6 +211,20 @@ const NoComments = styled.div`
   color: ${({ theme }) => theme.text};
   opacity: 0.7;
 `;
+const Imagem = styled.img`
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+const Galeria = styled.div`
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-top: 20px;
+`;
+
 
 // ======= COMPONENTE PRINCIPAL =======
 
@@ -271,6 +285,12 @@ export const GameDetails = ({ jogo, onClose }) => {
           </RatingStars>
           <RatingCount>({jogo.totalAvaliacoes ?? 0} avaliações)</RatingCount>
         </Rating>
+
+        <Galeria>
+          {jogo.galeria.map((img, i) => (
+            <Imagem key={i} src={img} alt={`Imagem ${i + 1}`} />
+          ))}
+        </Galeria>
 
         <CommentSection>
           <h3>Comentários</h3>

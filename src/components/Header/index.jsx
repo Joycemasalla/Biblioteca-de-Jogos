@@ -54,7 +54,7 @@ export const Header = () => {
     <HeaderContainer>
       <Logo>
         <Gamepad2 size={32} />
-        <span>GameVault</span>
+        <span>PlayHub </span>
       </Logo>
       <ThemeToggle onClick={toggleTema}>
         {temaDark ? <Sun size={24} /> : <Moon size={24} />}

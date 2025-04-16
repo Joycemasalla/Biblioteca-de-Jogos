@@ -89,6 +89,11 @@ export const items = [
     id: 1,
     titulo: 'The Legend of Adventure',
     imagem: 'https://images.unsplash.com/photo-1698450998458-0bc1045788a1?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Embarque em uma jornada lendária repleta de perigos, magia e heróis esquecidos. O destino do reino está em suas mãos.',
     categoria: 'Aventura',
     comentarios: [],
@@ -98,6 +103,11 @@ export const items = [
     id: 2,
     titulo: 'Space Explorer',
     imagem: 'https://images.unsplash.com/photo-1699862160391-1aa177a3baff?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Viaje por galáxias desconhecidas, enfrente ameaças alienígenas e descubra segredos cósmicos que mudarão o universo.',
     categoria: 'Ficção Científica',
     comentarios: [],
@@ -107,6 +117,11 @@ export const items = [
     id: 3,
     titulo: 'Mystic Forest',
     imagem: 'https://images.unsplash.com/photo-1731937817165-1fed94fc03b2?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Explore uma floresta encantada repleta de enigmas, criaturas mágicas e segredos antigos esquecidos pelo tempo.',
     categoria: 'Aventura',
     comentarios: [],
@@ -116,6 +131,11 @@ export const items = [
     id: 4,
     titulo: 'Racing Champions',
     imagem: 'https://images.unsplash.com/photo-1640878588131-4a5f39371d0b?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Domine pistas insanas, desafie os melhores pilotos e conquiste o pódio com manobras de tirar o fôlego.',
     categoria: 'Corrida',
     comentarios: [],
@@ -125,6 +145,11 @@ export const items = [
     id: 5,
     titulo: 'Cyber City',
     imagem: 'https://images.unsplash.com/photo-1741900034631-35808fbaf4c7?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Hackers, corporações e segredos obscuros te esperam numa cidade futurista onde cada escolha tem um preço.',
     categoria: 'Cyberpunk',
     comentarios: [],
@@ -134,6 +159,11 @@ export const items = [
     id: 6,
     titulo: 'Medieval Quest',
     imagem: 'https://images.unsplash.com/photo-1562576650-27130b06c0ab?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Forje sua lenda em um mundo medieval repleto de guerras, dragões e alianças traiçoeiras.',
     categoria: 'RPG',
     comentarios: [],
@@ -143,6 +173,11 @@ export const items = [
     id: 7,
     titulo: 'Battle Royale X',
     imagem: 'https://images.unsplash.com/photo-1655558844955-6332d031be97?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Salte no campo de batalha, lute com estratégia e seja o último a sobreviver em combates eletrizantes.',
     categoria: 'Battle Royale',
     comentarios: [],
@@ -152,6 +187,11 @@ export const items = [
     id: 8,
     titulo: 'Shadow Ninja',
     imagem: 'https://images.unsplash.com/photo-1640903581708-8d491706515b?q=80&w=1375&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Ataque nas sombras, derrote inimigos silenciosamente e descubra a honra perdida de um clã milenar.',
     categoria: 'Ação',
     comentarios: [],
@@ -161,6 +201,11 @@ export const items = [
     id: 9,
     titulo: 'Fantasy World',
     imagem: 'https://images.unsplash.com/photo-1609397756568-aa0368ecfd39?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Mundos mágicos, criaturas lendárias e aventuras épicas te aguardam neste universo de pura fantasia.',
     categoria: 'Fantasia',
     comentarios: [],
@@ -170,6 +215,11 @@ export const items = [
     id: 10,
     titulo: 'Galactic Wars',
     imagem: 'https://images.unsplash.com/photo-1677519007448-802732cff122?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    galeria: [
+      'https://placehold.co/200x120/222/fff?text=Imagem+1',
+      'https://placehold.co/200x120/333/fff?text=Imagem+2',
+      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+    ],
     descricao: 'Participe da guerra intergaláctica definitiva. Comande naves, lidere exércitos e mude o rumo da galáxia.',
     categoria: 'Ficção Científica',
     comentarios: [],
