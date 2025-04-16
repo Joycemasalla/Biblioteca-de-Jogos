@@ -139,129 +139,129 @@ const Grid = styled.div`
 export const items = [
   {
     id: 1,
-    titulo: 'The Legend of Adventure',
-    imagem: 'https://images.unsplash.com/photo-1698450998458-0bc1045788a1?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'The Legend of Zelda: Breath of The Wild',
+    imagem: 'https://hype.games/_next/image?url=https%3A%2F%2Fimg.hype.games%2Fcdn%2Fc64bd743-e83f-4677-a53b-e03fdc4f6566%5BBHN-Nintendo%5D-The-Legend-of-Zelda-Breath-of-the-Wild%20(1).png&w=3840&q=75',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/8710173/the_legend_of_zelda_breath_of_the_wild_hard_mode_battle_1920.jpg?quality=90&strip=all&crop=7.8125,0,84.375,100',
+      'https://images.cgames.de/images/gsgp/290/the-legend-of-zelda-breath-of-the-wild-hund_6080028.jpg',
+      'https://i.guim.co.uk/img/media/22d6b308c89e62e229feb220208a639836e31fd9/60_0_1800_1080/master/1800.png?width=700&quality=85&auto=format&fit=max&s=25c588a5203feea6061c32112a66ebdc'
     ],
-    descricao: 'Embarque em uma jornada lendária repleta de perigos, magia e heróis esquecidos. O destino do reino está em suas mãos.',
+    descricao: 'Entre em um mundo de descobertas, exploração e aventura em The Legend of Zelda: Breath of the Wild, o novo jogo da famosa série que veio para romper barreiras.',
     categoria: 'Aventura',
     comentarios: [],
     totalAvaliacoes: 150
   },
   {
     id: 2,
-    titulo: 'Space Explorer',
-    imagem: 'https://images.unsplash.com/photo-1699862160391-1aa177a3baff?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'Baldurs Gate 3',
+    imagem: 'https://thinglabs.io/wp-content/uploads/baldurs-gate-3-logo.webp',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://gamespace.com/wp-content/uploads/2023/06/BG3-Are-You-Ready-to-Return-to-Baldurs-Gate-After-20-Years.jpg',
+      'https://assetsio.gnwcdn.com/bg3-hotfix-18-vendor-bug-fices-patch-6-01.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp',
+      'https://i.ytimg.com/vi/vJ4SVSm1ARQ/maxresdefault.jpg'
     ],
-    descricao: 'Viaje por galáxias desconhecidas, enfrente ameaças alienígenas e descubra segredos cósmicos que mudarão o universo.',
-    categoria: 'Ficção Científica',
+    descricao: 'Reúna seu grupo e volte aos Reinos Esquecidos em uma história de amizade e traição, sacrifício e sobrevivência, e tentação pelo poder.',
+    categoria: 'Fantasia',
     comentarios: [],
-    totalAvaliacoes: 89
+    totalAvaliacoes: 150
   },
   {
     id: 3,
-    titulo: 'Mystic Forest',
-    imagem: 'https://images.unsplash.com/photo-1731937817165-1fed94fc03b2?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'Asassins Creed III',
+    imagem: 'https://i.ytimg.com/vi/ikd62DdJRhA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCy1TInPS6t3qpbg-3nr-ntQPW-hg',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/7KmIBNDuKhV3KRIFfl4Rff/703b7de65e55d257f716799bdadfbf28/AC3R_media_screenshot10_visuals.jpg',
+      'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fanise%2Fhome%2FACL_01_Aveline_1080-1920x1080-dac447a1d2084e7acf5256bb8b3fb0ba1c8c71c9.jpg?resize=1&w=480&h=270&quality=medium',
+      'https://i.ytimg.com/vi/EevWu6A1LPM/maxresdefault.jpg'
     ],
-    descricao: 'Explore uma floresta encantada repleta de enigmas, criaturas mágicas e segredos antigos esquecidos pelo tempo.',
-    categoria: 'Aventura',
+    descricao: 'Reviva a Revolução Americana ou explore esta era conturbada pela primeira vez em Assassins Creed III',
+    categoria: 'Ação',
     comentarios: [],
-    totalAvaliacoes: 120
+    totalAvaliacoes: 150
   },
   {
     id: 4,
-    titulo: 'Racing Champions',
-    imagem: 'https://images.unsplash.com/photo-1640878588131-4a5f39371d0b?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'Cyberpunk 2077',
+    imagem: 'https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://blackcompany.com.br/wp-content/uploads/2024/11/1080p-cyberpunk-2077-background-mk3a5gykijtb55w8.jpg',
+      'https://sm.ign.com/ign_br/screenshot/default/keanu-reeves_tx19.png',
+      'https://blog.br.playstation.com/tachyon/sites/4/2022/02/681dce8f5e80c94c54694dd97af30bdec9e1feef-scaled.jpg?resize=1088%2C612&crop_strategy=smart'
     ],
-    descricao: 'Domine pistas insanas, desafie os melhores pilotos e conquiste o pódio com manobras de tirar o fôlego.',
-    categoria: 'Corrida',
+    descricao: 'Cyberpunk 2077 é um RPG de ação e aventura em mundo aberto ambientado na megalópole de Night City, onde você é um mercenário cyberpunk envolvido em uma intensa luta pela sobrevivência.',
+    categoria: 'Cyberpunk',
     comentarios: [],
-    totalAvaliacoes: 200
+    totalAvaliacoes: 150
   },
   {
     id: 5,
-    titulo: 'Cyber City',
-    imagem: 'https://images.unsplash.com/photo-1741900034631-35808fbaf4c7?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'Celeste',
+    imagem: 'https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000006442/691ba3e0801180a9864cc8a7694b6f98097f9d9799bc7e3dc6db92f086759252',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1092840/ss_e0159d08620e917e632788c960d9593e5e7f431c.1920x1080.jpg?t=1607394540',
+      'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1092840/ss_03bfe6bd5ddac7f747c8d2aa1a4f82cfd53c6dcb.1920x1080.jpg?t=1607394540',
+      'https://m.media-amazon.com/images/I/61SrIyqZQLL.jpg'
     ],
-    descricao: 'Hackers, corporações e segredos obscuros te esperam numa cidade futurista onde cada escolha tem um preço.',
-    categoria: 'Cyberpunk',
+    descricao: 'Ajude Madeline a enfrentar seus demônios internos em sua jornada até o topo da Montanha Celeste, nesse jogo de plataforma super afiado dos criadores de TowerFall.',
+    categoria: 'Aventura',
     comentarios: [],
-    totalAvaliacoes: 167
+    totalAvaliacoes: 150
   },
   {
     id: 6,
-    titulo: 'Medieval Quest',
-    imagem: 'https://images.unsplash.com/photo-1562576650-27130b06c0ab?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'Minecraft',
+    imagem: 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://media.wired.com/photos/5dc9b5efdea30b00096c6cd0/16:9/w_2400,h_1350,c_limit/Cul-minecraft-MCE_MAG_Cover_01.jpg',
+      'https://i.imgur.com/RRSmXb3.png',
+      'https://preview.redd.it/n55zpu7nhzw41.png?auto=webp&s=db0c07be7b68d3633e6ca4359c44d6b5ae660bf9'
     ],
-    descricao: 'Forje sua lenda em um mundo medieval repleto de guerras, dragões e alianças traiçoeiras.',
-    categoria: 'RPG',
+    descricao: 'Mergulhe em um mundo aberto de construção, criação e sobrevivência. Colete recursos, sobreviva à noite e construa qualquer coisa que puder imaginar.',
+    categoria: 'Aventura',
     comentarios: [],
-    totalAvaliacoes: 145
+    totalAvaliacoes:150
   },
   {
     id: 7,
-    titulo: 'Battle Royale X',
-    imagem: 'https://images.unsplash.com/photo-1655558844955-6332d031be97?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'Final Fantasy VII Remake',
+    imagem: 'https://cdn1.epicgames.com/offer/6f43ab8025ad42d18510aa91e9eb688b/EGS_FINALFANTASYVIIREMAKEINTERGRADE_SquareEnix_S1_2560x1440-85f829541a833442eaace75d02e0f07d',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2YfGRSZPq5Lc-jZMrRLODeoy21Gb5NxGYQat05d34Ilv9jqzklnegSY-or0FdNeqWAh2FGr2jHhvIZt_gRHixcXtAZRJ2d5i0ngbBFUKJ_0Z-0pdelFuhs2WKUdIzgHJtSAYKhV-CB5Mq/s1600/928770.jpg',
+      'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i3WhTXHdZMjc/v1/-1x-1.webp',
+      'https://img.odcdn.com.br/wp-content/uploads/2021/03/10-1024x576.jpg'
     ],
-    descricao: 'Salte no campo de batalha, lute com estratégia e seja o último a sobreviver em combates eletrizantes.',
-    categoria: 'Battle Royale',
+    descricao: 'Cloud Strife, ex-agente da SOLDIER, chega a Midgar, a cidade movida a energia de mako. O clássico atemporal FINAL FANTASY VII renasceu, com gráficos de última geração, um novo sistema de combate e uma aventura adicional com Yuffie Kisaragi.',
+    categoria: 'Ação',
     comentarios: [],
-    totalAvaliacoes: 310
+    totalAvaliacoes:150
   },
   {
     id: 8,
-    titulo: 'Shadow Ninja',
-    imagem: 'https://images.unsplash.com/photo-1640903581708-8d491706515b?q=80&w=1375&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'Red Dead Redemption II',
+    imagem: 'https://cdn1.epicgames.com/b30b6d1b4dfd4dcc93b5490be5e094e5/offer/RDR2476298253_Epic_Games_Wishlist_RDR2_2560x1440_V01-2560x1440-2a9ebe1f7ee202102555be202d5632ec.jpg',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://gamenoticias.com.br/wp-content/uploads/2024/07/Imagem-principal-red-dead-redemption-2.jpg',
+      'https://s2.glbimg.com/ffvbgpQbg2kI04Ew_duXr13M5CI=/600x0/filters:quality(70)/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/P/Y/mSpQzzSrmk1JzB2d0auQ/2018-02-01-3.jpg',
+      'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_500/ncom/software/switch/70010000058660/0bddf448019d42d65fbc8a3e0fce67ad491f4e736791634fbfe00455a8fab985'
     ],
-    descricao: 'Ataque nas sombras, derrote inimigos silenciosamente e descubra a honra perdida de um clã milenar.',
-    categoria: 'Ação',
+    descricao: 'Red Dead Redemption 2, a épica aventura de mundo aberto da Rockstar Games aclamada pela crítica e o jogo mais bem avaliado desta geração de consoles, agora chega aprimorado para PC com conteúdos inéditos no Modo História, melhorias visuais e muito mais.',
+    categoria: 'Aventura',
     comentarios: [],
-    totalAvaliacoes: 198
+    totalAvaliacoes:150
   },
   {
     id: 9,
-    titulo: 'Fantasy World',
-    imagem: 'https://images.unsplash.com/photo-1609397756568-aa0368ecfd39?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    titulo: 'Diablo III',
+    imagem: 'https://upload.wikimedia.org/wikipedia/pt/1/12/DiabloIIIcover.jpg',
     galeria: [
-      'https://placehold.co/200x120/222/fff?text=Imagem+1',
-      'https://placehold.co/200x120/333/fff?text=Imagem+2',
-      'https://placehold.co/200x120/444/fff?text=Imagem+3'
+      'https://blz-contentstack-images.akamaized.net/v3/assets/blt0e00eb71333df64e/blte794552d6ec14b6f/66c3bff6ed65c331f86b3f9b/optiona_feature_section.jpg',
+      'https://s2.glbimg.com/YGwLYeUGNOkPpdImzCULjjFcva0=/1200x630/s.glbimg.com/jo/g1/f/original/2013/08/15/diablo3-1.jpg',
+      'https://gocdkeys.it/images/captures/diablo-3-pc-cd-key-4.jpg'
     ],
-    descricao: 'Mundos mágicos, criaturas lendárias e aventuras épicas te aguardam neste universo de pura fantasia.',
-    categoria: 'Fantasia',
+    descricao: 'Lute pelos cidadãos de Santuário e vá até o Inferno e o Paraíso neste RPG de ação.',
+    categoria: 'Ação',
     comentarios: [],
-    totalAvaliacoes: 175
+    totalAvaliacoes:150
   },
   {
     id: 10,
