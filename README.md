@@ -87,13 +87,18 @@ Esse projeto foi uma oportunidade de colocar em prática:
 
 ## 📸 Screenshots
 
-> (Adicione aqui prints do site rodando em diferentes telas, como mobile e desktop)
+>https://github.com/user-attachments/assets/fc6f3c74-fdbe-455a-8d9d-aac466ef3703
+
 
 ---
 
 ## 🧑‍💻 Autor
 
-Feito com 💙 por [Seu Nome](https://github.com/seu-usuario)
+Joyce Masalla
+Gustavo Monteiro
+Júlia Ávila
+Maria Eduarda
+Sânio Trindade
 
 ---
 
