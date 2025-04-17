@@ -9,6 +9,7 @@ import { Home } from './pages/Home';
 import { Favorites } from './pages/Favorites';
 import { Profile } from './pages/Profile';
 import { Toaster } from 'react-hot-toast';
+import {Footer} from './components/Footer/Footer';
 
 function App() {
   return (
@@ -23,7 +24,10 @@ function App() {
               <Route path="/favoritos" element={<Favorites />} />
               <Route path="/perfil" element={<Profile />} />
             </Routes>
+            
           </Content>
+          <Footer/>
+          
           <Toaster
             position="bottom-right"
             toastOptions={{
@@ -49,6 +53,7 @@ function App() {
               },
             }}
           />
+          
         </BrowserRouter>
       </FavoritosProvider>
     </ThemeProvider>

@@ -9,7 +9,7 @@ const DestaqueBanner = styled.div`
   background: linear-gradient(135deg, #001f3f, #003f7f, #0059b3);
   padding: 60px 30px;
   border-radius: 30px;
-  margin: 40px 0;
+  margin: 60px 0;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 123, 255, 0.2);
   position: relative;
   overflow: hidden;
@@ -76,7 +76,7 @@ const CampoBusca = styled.input`
   width: 100%;
   max-width: 450px;
   border-radius: 30px;
-  border: 1px solid #007BFF;
+  border: 1px solid #909090;
   background: #121212;
   color: #fff;
   font-size: 1rem;
@@ -93,6 +93,12 @@ const CampoBusca = styled.input`
     outline: none;
     border-color: #66b2ff;
     box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+  }
+  &:hover {
+    background: ${({ ativo }) => ativo
+    ? 'linear-gradient(135deg, #007BFF, #0056b3)'
+    : '#2a2a2a'};
+    border-color: #007BFF;
   }
 `;
 
@@ -135,6 +141,7 @@ const Grid = styled.div`
   gap: 25px;
   padding: 20px;
 `;
+
 
 export const items = [
   {
@@ -219,7 +226,7 @@ export const items = [
     descricao: 'Mergulhe em um mundo aberto de construção, criação e sobrevivência. Colete recursos, sobreviva à noite e construa qualquer coisa que puder imaginar.',
     categoria: 'Aventura',
     comentarios: [],
-    totalAvaliacoes:150
+    totalAvaliacoes: 150
   },
   {
     id: 7,
@@ -233,7 +240,7 @@ export const items = [
     descricao: 'Cloud Strife, ex-agente da SOLDIER, chega a Midgar, a cidade movida a energia de mako. O clássico atemporal FINAL FANTASY VII renasceu, com gráficos de última geração, um novo sistema de combate e uma aventura adicional com Yuffie Kisaragi.',
     categoria: 'Ação',
     comentarios: [],
-    totalAvaliacoes:150
+    totalAvaliacoes: 150
   },
   {
     id: 8,
@@ -247,7 +254,7 @@ export const items = [
     descricao: 'Red Dead Redemption 2, a épica aventura de mundo aberto da Rockstar Games aclamada pela crítica e o jogo mais bem avaliado desta geração de consoles, agora chega aprimorado para PC com conteúdos inéditos no Modo História, melhorias visuais e muito mais.',
     categoria: 'Aventura',
     comentarios: [],
-    totalAvaliacoes:150
+    totalAvaliacoes: 150
   },
   {
     id: 9,
@@ -261,7 +268,7 @@ export const items = [
     descricao: 'Lute pelos cidadãos de Santuário e vá até o Inferno e o Paraíso neste RPG de ação.',
     categoria: 'Ação',
     comentarios: [],
-    totalAvaliacoes:150
+    totalAvaliacoes: 150
   }
 ];
 
@@ -339,8 +346,11 @@ export const Home = () => {
       <DestaqueBanner>
         <div className="conteudo-destaque">
           <div className="texto-destaque">
-            <h2>🎮 Jogo Mais Bem Avaliado</h2>
+
+
+            <h2><h1>🎮</h1>Jogo Mais Bem Avaliado</h2>
             <span>Explore o jogo mais amado pela comunidade!</span>
+
           </div>
 
           <div className="card-destaque">

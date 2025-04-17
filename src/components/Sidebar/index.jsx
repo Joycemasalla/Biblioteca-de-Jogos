@@ -1,99 +1,122 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom'; // Importando o hook useNavigate
 import { Home, Heart, User, Menu, X } from 'lucide-react';
 import { useFavoritos } from '../../context/FavoritesContext';
 
-// Container do Sidebar, que será posicionado à esquerda da tela
-const SidebarContainer = styled.aside`
+// Navbar fixa no topo
+const NavbarContainer = styled.nav`
   position: fixed;
-  top: 60px;
+  top: 0;
   left: 0;
-  bottom: 0;
-  width: 200px;
+  right: 0;
+  height: 60px;
   background: ${({ theme }) => theme.sidebar};
-  padding: 20px;
-  transition: transform 0.3s ease;
-  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 200;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+`;
+
+// Logo
+const Logo = styled.div`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.accent};
+  cursor: pointer; /* Torna a logo clicável */
+`;
+
+// Navegação com os links
+const NavItems = styled.div`
+  display: flex;
+  gap: 20px;
 
   @media (max-width: 768px) {
-    transform: translateX(${({ aberto }) => (aberto ? '0' : '-100%')}); // Controla a visibilidade do sidebar em telas pequenas
-    width: 250px;
+    display: ${({ aberto }) => (aberto ? 'flex' : 'none')};
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: ${({ theme }) => theme.sidebar};
+    flex-direction: column;
+    padding: 20px;
   }
 `;
 
-// Botão para abrir/fechar o menu em telas pequenas
-const MenuButton = styled.button`
-  display: none;
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  background: ${({ theme }) => theme.accent};
-  color: white;
-  padding: 12px;
-  border-radius: 50%;
-  z-index: 101;
-
-  @media (max-width: 768px) {
-    display: flex; // Mostra o botão apenas em telas menores
-  }
-`;
-
-// Item de navegação, que será estilizado como um link
+// Estilo dos itens de navegação
 const NavItem = styled(NavLink)`
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  transition: all 0.2s ease;
-  text-decoration: none;
+  gap: 8px;
   color: ${({ theme }) => theme.textColor};
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.2s;
 
-  &:hover,
-  &.active {
-    background: ${({ theme }) => theme.accent};
-    color: white; // Altera o estilo quando o item é clicado ou está ativo
+  &.active,
+  &:hover {
+    color: ${({ theme }) => theme.accent};
   }
 `;
 
-// Badge que exibe a quantidade de favoritos
+// Badge de favoritos
 const Badge = styled.span`
   background: ${({ theme }) => theme.accent};
   color: white;
   padding: 2px 6px;
   border-radius: 12px;
-  font-size: 0.8rem;
-  margin-left: auto;
+  font-size: 0.75rem;
+`;
+
+// Botão do menu para mobile
+const MenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.textColor};
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 export const Sidebar = () => {
-  const [menuAberto, setMenuAberto] = useState(false); // Estado para controlar se o menu está aberto ou fechado
-  const { favoritos } = useFavoritos(); // Pegando os favoritos do contexto
+  const [menuAberto, setMenuAberto] = useState(false);
+  const { favoritos } = useFavoritos();
+  const navigate = useNavigate(); // Usando o hook useNavigate
 
-  const toggleMenu = () => setMenuAberto((prev) => !prev); // Função para alternar o estado do menu
+  const toggleMenu = () => setMenuAberto((prev) => !prev);
+
+  const handleLogoClick = () => {
+    navigate('/'); // Redireciona para a rota inicial
+    window.scrollTo(0, 0); // Rola para o topo da página
+  };
 
   return (
-    <>
-      <SidebarContainer aberto={menuAberto}>
-        <NavItem to="/">
+    <NavbarContainer>
+      <Logo onClick={handleLogoClick}>PlayHub</Logo> {/* Logo com clique para voltar ao início */}
+
+      <NavItems aberto={menuAberto}>
+        <NavItem to="/" onClick={() => setMenuAberto(false)}>
           <Home size={20} />
-          <span>Início</span>
+          Início
         </NavItem>
-        <NavItem to="/favoritos">
+        <NavItem to="/favoritos" onClick={() => setMenuAberto(false)}>
           <Heart size={20} />
-          <span>Favoritos</span>
-          {favoritos.length > 0 && <Badge>{favoritos.length}</Badge>} {/* Exibe o número de favoritos se houver */}
+          Favoritos
+          {favoritos.length > 0 && <Badge>{favoritos.length}</Badge>}
         </NavItem>
-        <NavItem to="/perfil">
+        <NavItem to="/perfil" onClick={() => setMenuAberto(false)}>
           <User size={20} />
-          <span>Perfil</span>
+          Perfil
         </NavItem>
-      </SidebarContainer>
+      </NavItems>
+
       <MenuButton onClick={toggleMenu}>
-        {menuAberto ? <X size={24} /> : <Menu size={24} />} {/* Muda o ícone dependendo do estado do menu */}
+        {menuAberto ? <X size={24} /> : <Menu size={24} />}
       </MenuButton>
-    </>
+    </NavbarContainer>
   );
 };

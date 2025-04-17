@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { X, Star, Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
@@ -229,9 +229,25 @@ const Galeria = styled.div`
 // ======= COMPONENTE PRINCIPAL =======
 
 export const GameDetails = ({ jogo, onClose }) => {
-  const [comentario, setComentario] = useState('');
-  const { adicionarComentario, removerComentario, atualizarAvaliacao } = useFavoritos();
   const { ratings, rateGame } = useRating();
+
+  const [comentario, setComentario] = useState('');
+  const [comentarios, setComentarios] = useState([]);
+
+  const salvarComentariosNoStorage = (comentarios) => {
+    localStorage.setItem(`comentarios_${jogo.id}`, JSON.stringify(comentarios));
+  };
+
+  useEffect(() => {
+    // Carregar comentários do localStorage ao montar o componente
+    const savedComments = JSON.parse(localStorage.getItem('comentarios')) || [];
+    setComentarios(savedComments.filter(c => c.jogoId === jogo.id));
+  }, [jogo.id]);
+
+  useEffect(() => {
+    // Salvar os comentários no localStorage sempre que a lista mudar
+    localStorage.setItem('comentarios', JSON.stringify(comentarios));
+  }, [comentarios]);
 
   const currentRating = ratings[jogo.id] || jogo.avaliacao || 0;
 
@@ -247,17 +263,36 @@ export const GameDetails = ({ jogo, onClose }) => {
       toast.error('O comentário não pode ser vazio.');
       return;
     }
-    adicionarComentario(jogo.id, comentario, 'usuario-atual');
-    setComentario('');
+
+    const novoComentario = {
+      id: Date.now(),
+      texto: comentario,
+      autor: 'usuario-atual',
+      data: new Date(),
+    };
+
+    const novosComentarios = [...comentarios, novoComentario];
+    setComentarios(novosComentarios);
+    salvarComentariosNoStorage(novosComentarios);
+    setComentario(''); // Limpar o campo de comentário
     toast.success('Comentário adicionado com sucesso!');
   };
 
   const handleDeleteComment = (commentId) => {
     if (window.confirm('Tem certeza que deseja excluir este comentário?')) {
-      removerComentario(jogo.id, commentId);
+      const novosComentarios = comentarios.filter((comment) => comment.id !== commentId);
+      setComentarios(novosComentarios);
+      salvarComentariosNoStorage(novosComentarios);
       toast.success('Comentário removido com sucesso!');
     }
   };
+
+  useEffect(() => {
+    const comentariosNoStorage = localStorage.getItem(`comentarios_${jogo.id}`);
+    if (comentariosNoStorage) {
+      setComentarios(JSON.parse(comentariosNoStorage));
+    }
+  }, [jogo.id]);
 
   return (
     <Overlay onClick={onClose}>
@@ -292,35 +327,38 @@ export const GameDetails = ({ jogo, onClose }) => {
           ))}
         </Galeria>
 
+        {/* Seção de Comentários */}
         <CommentSection>
-          <h3>Comentários</h3>
           <CommentForm onSubmit={handleSubmit}>
             <CommentInput
               value={comentario}
               onChange={(e) => setComentario(e.target.value)}
-              placeholder="Compartilhe sua opinião sobre o jogo..."
+              placeholder="Deixe seu comentário..."
             />
             <SubmitButton type="submit">Enviar Comentário</SubmitButton>
           </CommentForm>
 
+          {/* Exibindo os Comentários */}
           <CommentList>
-            {jogo.comentarios?.length ? (
-              jogo.comentarios.map((comentario) => (
-                <CommentCard key={comentario.id}>
+            {comentarios.length === 0 ? (
+              <NoComments>Sem comentários ainda.</NoComments>
+            ) : (
+              comentarios.map((comentario) => (
+                <CommentCard key={comentario.id} isOwn={comentario.autor === 'user'}>
                   <CommentHeader>
                     <span>{comentario.autor}</span>
                     <CommentDate>
                       {format(new Date(comentario.data), 'dd/MM/yyyy', { locale: ptBR })}
                     </CommentDate>
+                    {comentario.autor === 'usuario-atual' && (
+                      <DeleteButton onClick={() => handleDeleteComment(comentario.id)}>
+                        <Trash2 size={16} />
+                      </DeleteButton>
+                    )}
                   </CommentHeader>
                   <CommentText>{comentario.texto}</CommentText>
-                  <DeleteButton onClick={() => handleDeleteComment(comentario.id)} aria-label="Excluir comentário">
-                    <Trash2 size={16} />
-                  </DeleteButton>
                 </CommentCard>
               ))
-            ) : (
-              <NoComments>Sem comentários ainda. Seja o primeiro a comentar!</NoComments>
             )}
           </CommentList>
         </CommentSection>

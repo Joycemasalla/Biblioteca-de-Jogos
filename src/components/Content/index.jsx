@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 // Estilizando o container principal com margem esquerda, margem superior, padding e altura mínima
 const ContentContainer = styled.main`
-  margin-left: 200px; // Espaçamento da esquerda (cria o efeito de "sidebar")
-  margin-top: 60px;  // Espaçamento superior (compensa a altura do cabeçalho)
-  padding: 20px;     // Espaçamento interno (padding) de 20px
-  min-height: calc(100vh - 60px); // Altura mínima para ocupar toda a tela, considerando o cabeçalho fixo de 60px
+  flex: 1;
+  padding: 20px;
+  margin-left: auto; /* ou conforme o tamanho da sua Sidebar */
+  min-height: calc(100vh - 60px); /* altura total menos header */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   // Responsividade: quando a tela for menor que 768px (ex: dispositivos móveis)
   @media (max-width: 768px) {
