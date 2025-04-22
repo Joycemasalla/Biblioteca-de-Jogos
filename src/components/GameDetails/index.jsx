@@ -226,143 +226,148 @@ const Galeria = styled.div`
 `;
 
 
+
 // ======= COMPONENTE PRINCIPAL =======
 
 export const GameDetails = ({ jogo, onClose }) => {
-  const { ratings, rateGame } = useRating();
+  const { ratings, rateGame } = useRating();
 
-  const [comentario, setComentario] = useState('');
-  const [comentarios, setComentarios] = useState([]);
+  const [comentario, setComentario] = useState('');
+  const [comentarios, setComentarios] = useState([]);
 
-  const salvarComentariosNoStorage = (comentarios) => {
-    localStorage.setItem(`comentarios_${jogo.id}`, JSON.stringify(comentarios));
-  };
+  // Salva comentários no localStorage
+  const salvarComentariosNoStorage = (comentarios) => {
+    localStorage.setItem(`comentarios_${jogo.id}`, JSON.stringify(comentarios));
+  };
 
-  useEffect(() => {
-    // Carregar comentários do localStorage ao montar o componente
-    const savedComments = JSON.parse(localStorage.getItem('comentarios')) || [];
-    setComentarios(savedComments.filter(c => c.jogoId === jogo.id));
-  }, [jogo.id]);
+  useEffect(() => {
+    // Carrega comentários do localStorage ao montar o componente
+    const savedComments = JSON.parse(localStorage.getItem('comentarios')) || [];
+    setComentarios(savedComments.filter(c => c.jogoId === jogo.id));
+  }, [jogo.id]);
 
-  useEffect(() => {
-    // Salvar os comentários no localStorage sempre que a lista mudar
-    localStorage.setItem('comentarios', JSON.stringify(comentarios));
-  }, [comentarios]);
+  useEffect(() => {
+    // Salva os comentários no localStorage sempre que a lista mudar
+    localStorage.setItem('comentarios', JSON.stringify(comentarios));
+  }, [comentarios]);
 
-  const currentRating = ratings[jogo.id] || jogo.avaliacao || 0;
+  const currentRating = ratings[jogo.id] || jogo.avaliacao || 0;
 
-  const handleRate = (value) => {
-    rateGame(jogo.id, value);
-    atualizarAvaliacao(jogo.id, value);
-    toast.success('Avaliação atualizada!');
-  };
+  // Função para avaliar o jogo
+  const handleRate = (value) => {
+    rateGame(jogo.id, value);
+    atualizarAvaliacao(jogo.id, value);
+    toast.success('Avaliação atualizada!');
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!comentario.trim()) {
-      toast.error('O comentário não pode ser vazio.');
-      return;
-    }
+  // Função para enviar um comentário
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!comentario.trim()) {
+      toast.error('O comentário não pode ser vazio.');
+      return;
+    }
 
-    const novoComentario = {
-      id: Date.now(),
-      texto: comentario,
-      autor: 'usuario-atual',
-      data: new Date(),
-    };
+    const novoComentario = {
+      id: Date.now(),
+      texto: comentario,
+      autor: 'usuario-atual',
+      data: new Date(),
+    };
 
-    const novosComentarios = [...comentarios, novoComentario];
-    setComentarios(novosComentarios);
-    salvarComentariosNoStorage(novosComentarios);
-    setComentario(''); // Limpar o campo de comentário
-    toast.success('Comentário adicionado com sucesso!');
-  };
+    const novosComentarios = [...comentarios, novoComentario];
+    setComentarios(novosComentarios);
+    salvarComentariosNoStorage(novosComentarios);
+    setComentario(''); // Limpa o campo de comentário
+    toast.success('Comentário adicionado com sucesso!');
+  };
 
-  const handleDeleteComment = (commentId) => {
-    if (window.confirm('Tem certeza que deseja excluir este comentário?')) {
-      const novosComentarios = comentarios.filter((comment) => comment.id !== commentId);
-      setComentarios(novosComentarios);
-      salvarComentariosNoStorage(novosComentarios);
-      toast.success('Comentário removido com sucesso!');
-    }
-  };
+  // Função para deletar um comentário
+  const handleDeleteComment = (commentId) => {
+    if (window.confirm('Tem certeza que deseja excluir este comentário?')) {
+      const novosComentarios = comentarios.filter((comment) => comment.id !== commentId);
+      setComentarios(novosComentarios);
+      salvarComentariosNoStorage(novosComentarios);
+      toast.success('Comentário removido com sucesso!');
+    }
+  };
 
-  useEffect(() => {
-    const comentariosNoStorage = localStorage.getItem(`comentarios_${jogo.id}`);
-    if (comentariosNoStorage) {
-      setComentarios(JSON.parse(comentariosNoStorage));
-    }
-  }, [jogo.id]);
+  useEffect(() => {
+    const comentariosNoStorage = localStorage.getItem(`comentarios_${jogo.id}`);
+    if (comentariosNoStorage) {
+      setComentarios(JSON.parse(comentariosNoStorage));
+    }
+  }, [jogo.id]);
 
-  return (
-    <Overlay onClick={onClose}>
-      <Modal onClick={e => e.stopPropagation()}>
-        <CloseButton onClick={onClose} aria-label="Fechar">
-          <X size={24} />
-        </CloseButton>
+  return (
+    <Overlay onClick={onClose}>
+      <Modal onClick={e => e.stopPropagation()}>
+        <CloseButton onClick={onClose} aria-label="Fechar">
+          <X size={24} />
+        </CloseButton>
 
-        <Image src={jogo.imagem} alt={jogo.titulo} />
-        <Title>{jogo.titulo}</Title>
-        <Description>{jogo.descricao}</Description>
+        <Image src={jogo.imagem} alt={jogo.titulo} />
+        <Title>{jogo.titulo}</Title>
+        <Description>{jogo.descricao}</Description>
 
-        <Rating>
-          <RatingStars>
-            {[1, 2, 3, 4, 5].map((estrela) => (
-              <StarButton
-                key={estrela}
-                onClick={() => handleRate(estrela)}
-                active={estrela <= currentRating}
-                aria-label={`Avaliar com ${estrela} estrela(s)`}
-              >
-                <Star size={28} />
-              </StarButton>
-            ))}
-          </RatingStars>
-          <RatingCount>({jogo.totalAvaliacoes ?? 0} avaliações)</RatingCount>
-        </Rating>
+        <Rating>
+          <RatingStars>
+            {[1, 2, 3, 4, 5].map((estrela) => (
+              <StarButton
+                key={estrela}
+                onClick={() => handleRate(estrela)}
+                active={estrela <= currentRating}
+                aria-label={`Avaliar com ${estrela} estrela(s)`}
+              >
+                <Star size={28} />
+              </StarButton>
+            ))}
+          </RatingStars>
+          <RatingCount>({jogo.totalAvaliacoes ?? 0} avaliações)</RatingCount>
+        </Rating>
 
-        <Galeria>
-          {jogo.galeria.map((img, i) => (
-            <Imagem key={i} src={img} alt={`Imagem ${i + 1}`} />
-          ))}
-        </Galeria>
+        <Galeria>
+          {jogo.galeria.map((img, i) => (
+            <Imagem key={i} src={img} alt={`Imagem ${i + 1}`} />
+          ))}
+        </Galeria>
 
-        {/* Seção de Comentários */}
-        <CommentSection>
-          <CommentForm onSubmit={handleSubmit}>
-            <CommentInput
-              value={comentario}
-              onChange={(e) => setComentario(e.target.value)}
-              placeholder="Deixe seu comentário..."
-            />
-            <SubmitButton type="submit">Enviar Comentário</SubmitButton>
-          </CommentForm>
+        {/* Seção de Comentários */}
+        <CommentSection>
+          <CommentForm onSubmit={handleSubmit}>
+            <CommentInput
+              value={comentario}
+              onChange={(e) => setComentario(e.target.value)}
+              placeholder="Deixe seu comentário..."
+            />
+            <SubmitButton type="submit">Enviar Comentário</SubmitButton>
+          </CommentForm>
 
-          {/* Exibindo os Comentários */}
-          <CommentList>
-            {comentarios.length === 0 ? (
-              <NoComments>Sem comentários ainda.</NoComments>
-            ) : (
-              comentarios.map((comentario) => (
-                <CommentCard key={comentario.id} isOwn={comentario.autor === 'user'}>
-                  <CommentHeader>
-                    <span>{comentario.autor}</span>
-                    <CommentDate>
-                      {format(new Date(comentario.data), 'dd/MM/yyyy', { locale: ptBR })}
-                    </CommentDate>
-                    {comentario.autor === 'usuario-atual' && (
-                      <DeleteButton onClick={() => handleDeleteComment(comentario.id)}>
-                        <Trash2 size={16} />
-                      </DeleteButton>
-                    )}
-                  </CommentHeader>
-                  <CommentText>{comentario.texto}</CommentText>
-                </CommentCard>
-              ))
-            )}
-          </CommentList>
-        </CommentSection>
-      </Modal>
-    </Overlay>
-  );
+          {/* Exibindo os Comentários */}
+          <CommentList>
+            {comentarios.length === 0 ? (
+              <NoComments>Sem comentários ainda.</NoComments>
+            ) : (
+              comentarios.map((comentario) => (
+                <CommentCard key={comentario.id} isOwn={comentario.autor === 'user'}>
+                  <CommentHeader>
+                    <span>{comentario.autor}</span>
+                    <CommentDate>
+                      {format(new Date(comentario.data), 'dd/MM/yyyy', { locale: ptBR })}
+                    </CommentDate>
+                    {comentario.autor === 'usuario-atual' && (
+                      <DeleteButton onClick={() => handleDeleteComment(comentario.id)}>
+                        <Trash2 size={16} />
+                      </DeleteButton>
+                    )}
+                  </CommentHeader>
+                  <CommentText>{comentario.texto}</CommentText>
+                </CommentCard>
+              ))
+            )}
+          </CommentList>
+        </CommentSection>
+      </Modal>
+    </Overlay>
+  );
 };
