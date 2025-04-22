@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { NavLink, useNavigate } from 'react-router-dom'; // Importando o hook useNavigate
-import { Home, Heart, User, Menu, X } from 'lucide-react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Home, Heart, User, Menu, X, Moon, Sun } from 'lucide-react';
 import { useFavoritos } from '../../context/FavoritesContext';
+import { useTema } from '../../context/ThemeContext';
 
-// Navbar fixa no topo
 const NavbarContainer = styled.nav`
   position: fixed;
   top: 0;
@@ -16,21 +16,20 @@ const NavbarContainer = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  z-index: 200;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
-// Logo
 const Logo = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
   color: ${({ theme }) => theme.accent};
-  cursor: pointer; /* Torna a logo clicável */
+  cursor: pointer;
 `;
 
-// Navegação com os links
 const NavItems = styled.div`
   display: flex;
+  align-items: center;
   gap: 20px;
 
   @media (max-width: 768px) {
@@ -39,13 +38,13 @@ const NavItems = styled.div`
     top: 60px;
     left: 0;
     right: 0;
-    background: ${({ theme }) => theme.sidebar};
     flex-direction: column;
+    background: ${({ theme }) => theme.sidebar};
     padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 `;
 
-// Estilo dos itens de navegação
 const NavItem = styled(NavLink)`
   display: flex;
   align-items: center;
@@ -61,7 +60,6 @@ const NavItem = styled(NavLink)`
   }
 `;
 
-// Badge de favoritos
 const Badge = styled.span`
   background: ${({ theme }) => theme.accent};
   color: white;
@@ -70,33 +68,35 @@ const Badge = styled.span`
   font-size: 0.75rem;
 `;
 
-// Botão do menu para mobile
 const MenuButton = styled.button`
-  display: none;
   background: none;
   border: none;
   color: ${({ theme }) => theme.textColor};
+  cursor: pointer;
 
-  @media (max-width: 768px) {
-    display: block;
+  @media (min-width: 769px) {
+    &:nth-child(2) {
+      display: none;
+    }
   }
 `;
 
 export const Sidebar = () => {
   const [menuAberto, setMenuAberto] = useState(false);
   const { favoritos } = useFavoritos();
-  const navigate = useNavigate(); // Usando o hook useNavigate
+  const navigate = useNavigate();
+  const { temaDark, toggleTema } = useTema();
 
   const toggleMenu = () => setMenuAberto((prev) => !prev);
-
   const handleLogoClick = () => {
-    navigate('/'); // Redireciona para a rota inicial
-    window.scrollTo(0, 0); // Rola para o topo da página
+    navigate('/');
+    window.scrollTo(0, 0);
+    setMenuAberto(false);
   };
 
   return (
     <NavbarContainer>
-      <Logo onClick={handleLogoClick}>PlayHub</Logo> {/* Logo com clique para voltar ao início */}
+      <Logo onClick={handleLogoClick}>PlayHub</Logo>
 
       <NavItems aberto={menuAberto}>
         <NavItem to="/" onClick={() => setMenuAberto(false)}>
@@ -114,9 +114,14 @@ export const Sidebar = () => {
         </NavItem>
       </NavItems>
 
-      <MenuButton onClick={toggleMenu}>
-        {menuAberto ? <X size={24} /> : <Menu size={24} />}
-      </MenuButton>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <MenuButton onClick={toggleTema}>
+          {temaDark ? <Sun size={24} /> : <Moon size={24} />}
+        </MenuButton>
+        <MenuButton onClick={toggleMenu}>
+          {menuAberto ? <X size={24} /> : <Menu size={24} />}
+        </MenuButton>
+      </div>
     </NavbarContainer>
   );
 };
