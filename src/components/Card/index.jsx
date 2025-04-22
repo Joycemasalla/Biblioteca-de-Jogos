@@ -4,7 +4,7 @@ import { Heart, Star } from 'lucide-react';
 import { useFavoritos } from '../../context/FavoritesContext.jsx';
 import { useRating } from '../../context/RatingContext.jsx';
 
-// Estilos aprimorados
+// Estilos para o container do cartão
 const CardContainer = styled.div`
   background: ${({ theme }) => theme.cardBackground};
   border-radius: 16px;
@@ -28,9 +28,10 @@ const CardContainer = styled.div`
   }
 `;
 
+// Container para a imagem do jogo
 const ImageContainer = styled.div`
   position: relative;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%; /* Proporção 16:9 */
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
@@ -41,6 +42,7 @@ const ImageContainer = styled.div`
   }
 `;
 
+// Estilos para a imagem do jogo
 const Image = styled.img`
   position: absolute;
   top: 0;
@@ -57,11 +59,13 @@ const Image = styled.img`
   }
 `;
 
+// Container para o conteúdo do cartão
 const Content = styled.div`
   padding: 16px;
   width: 100%;
 `;
 
+// Estilos para o título do jogo
 const Title = styled.h3`
   font-size: 1.25rem;
   color: ${({ theme }) => theme.primaryText};
@@ -74,6 +78,7 @@ const Title = styled.h3`
   }
 `;
 
+// Estilos para a descrição do jogo
 const Description = styled.p`
   color: ${({ theme }) => theme.text};
   opacity: 0.8;
@@ -81,6 +86,7 @@ const Description = styled.p`
   margin-bottom: 16px;
 `;
 
+// Container para as ações do cartão (favoritar e avaliar)
 const Actions = styled.div`
   display: flex;
   justify-content: space-between;
@@ -88,6 +94,7 @@ const Actions = styled.div`
   width: 100%;
 `;
 
+// Botão para favoritar o jogo
 const FavoriteButton = styled.button`
   background: none;
   border: none;
@@ -107,12 +114,14 @@ const FavoriteButton = styled.button`
   }
 `;
 
+// Container para a avaliação do jogo
 const Rating = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
 `;
 
+// Botão para avaliar o jogo com estrelas
 const StarButton = styled.button`
   background: none;
   border: none;
@@ -130,6 +139,7 @@ const StarButton = styled.button`
   }
 `;
 
+// Total de avaliações do jogo
 const TotalAvaliacoes = styled.span`
   font-size: 0.85rem;
   color: ${({ theme }) => theme.text};
@@ -137,6 +147,7 @@ const TotalAvaliacoes = styled.span`
   margin-left: 8px;
 `;
 
+// Componente Card que exibe informações sobre o jogo
 export const Card = ({
   id,
   titulo,
@@ -149,6 +160,7 @@ export const Card = ({
   const { ratings, rateGame } = useRating();
   const isFavorito = favoritos.some(f => f.id === id);
 
+  // Função para alternar o estado de favorito
   const toggleFavorito = (e) => {
     e.stopPropagation();
     if (isFavorito) {
@@ -166,6 +178,7 @@ export const Card = ({
     }
   };
 
+  // Função para avaliar o jogo
   const handleAvaliacao = (e, valor) => {
     e.stopPropagation();
     rateGame(id, valor);
