@@ -3,16 +3,28 @@ import styled from 'styled-components';
 import { User, Heart, Library, Star, Edit, Save, X } from 'lucide-react';
 import { useFavoritos } from '../../context/FavoritesContext';
 import { items } from '../Home/index.jsx';
-import { useNavigate } from 'react-router-dom';  // Importando useNavigate para navegação
+import { useNavigate } from 'react-router-dom';
 
-// Container principal do perfil com animação suave
 const ProfileContainer = styled.div`
   margin-top: 50px;
-  padding: 40px 200px;
+  padding: 40px 20px;
   background-color: ${({ theme }) => theme.backgroundSecondary};
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-out;
+  margin-bottom: 80px;
+
+  @media (min-width: 768px) {
+    padding: 40px 60px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 40px 100px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 40px 200px;
+  }
 
   @keyframes fadeIn {
     0% {
@@ -26,7 +38,6 @@ const ProfileContainer = styled.div`
   }
 `;
 
-// Avatar com borda elegante e animação ao passar o mouse
 const Avatar = styled.div`
   width: 120px;
   height: 120px;
@@ -37,14 +48,18 @@ const Avatar = styled.div`
   justify-content: center;
   margin: 0 auto 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+
   &:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   }
+
+  @media (max-width: 480px) {
+    width: 90px;
+    height: 90px;
+  }
 `;
 
-// Seção de informações do perfil com borda mais delicada e sombreamento
 const ProfileInfo = styled.div`
   background: ${({ theme }) => theme.cardBackground};
   padding: 30px;
@@ -60,7 +75,6 @@ const ProfileInfo = styled.div`
   }
 `;
 
-// Botões de edição com animação suave de hover
 const EditButtons = styled.div`
   position: absolute;
   top: 15px;
@@ -83,7 +97,6 @@ const IconButton = styled.button`
   }
 `;
 
-// Campo de input com borda arredondada e animação de foco
 const InputField = styled.input`
   background: ${({ theme }) => theme.inputBackground};
   border: 1px solid ${({ theme }) => theme.borderColor};
@@ -99,9 +112,12 @@ const InputField = styled.input`
     border-color: ${({ theme }) => theme.primary};
     box-shadow: 0 0 10px ${({ theme }) => theme.primary};
   }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
-// Grid de estatísticas com animação de entrada suave
 const StatsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -122,7 +138,6 @@ const StatsGrid = styled.div`
   }
 `;
 
-// Cartão de estatísticas com borda e sombra leve
 const StatCard = styled.div`
   background: ${({ theme }) => theme.cardBackground};
   padding: 20px;
@@ -166,22 +181,17 @@ export const Profile = () => {
   const { favoritos, getMediaAvaliacoes } = useFavoritos();
   const [editando, setEditando] = useState(false);
   const [nome, setNome] = useState('Joyce Masalla');
-  const [dataNascimento, setDataNascimento] = useState('29-03-2009');
+  const [dataNascimento, setDataNascimento] = useState('2009-03-29');
   const [genero, setGenero] = useState('Feminino');
   const [gmail, setGmail] = useState('joyce.masalla@gmail.com');
-  
-  const navigate = useNavigate(); // Inicializando o useNavigate
+
+  const navigate = useNavigate();
 
   const handleSave = () => setEditando(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Rola até o topo da página
+    window.scrollTo(0, 0); // Garante que vá para o topo ao entrar
   }, []);
-
-  // Função para navegação
-  const navigateTo = (path) => {
-    navigate(path);
-  };
 
   return (
     <ProfileContainer>
@@ -220,13 +230,13 @@ export const Profile = () => {
       </ProfileInfo>
 
       <StatsGrid>
-        <StatCard onClick={() => navigateTo('/favoritos')}>
+        <StatCard onClick={() => navigate('/favoritos')}>
           <Heart size={32} />
           <StatValue>{favoritos.length}</StatValue>
           <StatLabel>Jogos Favoritos</StatLabel>
         </StatCard>
 
-        <StatCard onClick={() => navigateTo('/')}>
+        <StatCard onClick={() => navigate('/')}>
           <Library size={32} />
           <StatValue>{items.length}</StatValue>
           <StatLabel>Jogos na Biblioteca</StatLabel>
