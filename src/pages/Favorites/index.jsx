@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Card } from '../../components/Card';
 import { useFavoritos } from '../../context/FavoritesContext';
 
-// Cabeçalho com gradiente azul, responsivo e animado
 const Header = styled.header`
   background: linear-gradient(135deg, #003366, #0059b3);
   color: #cce6ff;
@@ -124,7 +123,6 @@ const EmptyState = styled.div`
   }
 `;
 
-// Estilo do Card com animação
 const FavoriteCard = styled(Card)`
   border-radius: 12px;
   overflow: hidden;

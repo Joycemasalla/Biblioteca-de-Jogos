@@ -83,7 +83,7 @@ export const FavoritosProvider = ({ children }) => {
       atualizarAvaliacao,
       adicionarComentario,
       removerComentario,
-      getMediaAvaliacoes, // Agora passando a função de média
+      getMediaAvaliacoes, 
     }}>
       {children}
     </FavoritosContext.Provider>
