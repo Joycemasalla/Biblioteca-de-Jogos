@@ -1,5 +1,5 @@
 
-# 🎮 GameVerse
+# 🎮 Play Hub
 
 Um site interativo para fãs de jogos, onde você pode explorar títulos de diferentes categorias, favoritar os seus preferidos, ver estatísticas no seu perfil e deixar comentários e avaliações.
 
@@ -19,7 +19,7 @@ Um site interativo para fãs de jogos, onde você pode explorar títulos de dife
 
 - **React.js** — biblioteca para construção de interfaces
 - **Styled-components** — estilização moderna usando CSS-in-JS
-- **JavaScript (ES6+)**
+- **JavaScript**
 - **useState e useEffect** — gerenciamento de estado e efeitos colaterais
 - **Unsplash API** — imagens realistas e de alta qualidade (capas dos jogos)
 
@@ -62,15 +62,6 @@ npm start
 
 O projeto estará disponível em `http://localhost:3000`.
 
----
-
-## 📌 Melhorias Futuras
-
-- Autenticação de usuários
-- Sistema de avaliação com estrelas
-- Filtro por categorias
-- Pesquisa por nome do jogo
-- Integração com backend para persistência de dados
 
 ---
 
@@ -92,7 +83,7 @@ Esse projeto foi uma oportunidade de colocar em prática:
 
 ---
 
-## 🧑‍💻 Autor
+## 🧑‍💻 Autores
 
 Joyce Masalla
 Gustavo Monteiro
