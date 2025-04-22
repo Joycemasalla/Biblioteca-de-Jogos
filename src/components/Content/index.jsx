@@ -1,24 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Estilizando o container principal com margem esquerda, margem superior, padding e altura mínima
+// Estilizando o container principal
 const ContentContainer = styled.main`
-  flex: 1;
-  padding: 20px;
-  margin-left: auto; /* ou conforme o tamanho da sua Sidebar */
-  min-height: calc(100vh - 60px); /* altura total menos header */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex: 1; // Faz o container ocupar o espaço disponível
+  padding: 20px; // Espaçamento interno
+  margin-left: auto; // Margem esquerda automática
+  min-height: calc(100vh - 60px); // Altura mínima (altura da tela menos o header)
+  display: flex; // Define o layout como flexbox
+  flex-direction: column; // Alinha os itens em coluna
+  justify-content: space-between; // Espaça os itens igualmente
 
-  // Responsividade: quando a tela for menor que 768px (ex: dispositivos móveis)
+  // Responsividade para telas menores que 768px
   @media (max-width: 768px) {
-    margin-left: 0; // Remover a margem esquerda para que o conteúdo ocupe a tela toda
+    margin-left: 0; // Remove a margem esquerda
   }
 `;
 
-// O componente Content agora está em JavaScript e não tem mais tipos explícitos
-// Apenas passa o que for recebido no prop `children` para o container principal
+// Componente Content que exibe o conteúdo recebido
 export const Content = ({ children }) => {
   return <ContentContainer>{children}</ContentContainer>;
 };
